@@ -1,0 +1,28 @@
+{
+  "name": "nodejs-hw-mongodb",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon src/index.js"
+  },
+  "keywords": [],
+  "author": "Volodymyr Shkimba <shkimbavova@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "@eslint/js": "^9.16.0",
+    "eslint": "^9.16.0",
+    "globals": "^15.13.0",
+    "nodemon": "^3.1.7",
+    "pino-pretty": "^13.0.0"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.1",
+    "mongoose": "^8.8.3",
+    "pino-http": "^10.3.0"
+  }
+}
