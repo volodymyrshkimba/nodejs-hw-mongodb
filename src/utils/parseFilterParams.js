@@ -15,3 +15,15 @@ const parseIsFavourite = (isFavourite) => {
 
   return isFavourite === 'true';
 };
+
+export const parseFilterParams = (query) => {
+  const { type, isFavourite } = query;
+
+  const parsedType = parseContactType(type);
+  const parsedIsFavourite = parseIsFavourite(isFavourite);
+
+  return {
+    type: parsedType,
+    isFavourite: parsedIsFavourite,
+  };
+};
