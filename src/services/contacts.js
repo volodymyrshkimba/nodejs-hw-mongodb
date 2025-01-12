@@ -46,9 +46,10 @@ export const getContactById = async (contactId, userId) => {
   return contact;
 };
 
-export const addContact = async (contact, userId) => {
+export const addContact = async (contactData, photo, userId) => {
   const addedContact = await contactsCollection.create({
-    ...contact,
+    ...contactData,
+    photo,
     userId,
   });
   return addedContact;
@@ -58,6 +59,7 @@ export const updateContact = async (
   contactId,
   userId,
   contact,
+  photo,
   options = {},
 ) => {
   const result = await contactsCollection.findOneAndUpdate(
@@ -65,7 +67,10 @@ export const updateContact = async (
       _id: contactId,
       userId,
     },
-    contact,
+    {
+      ...contact,
+      photo,
+    },
     {
       new: true,
       includeResultMetadata: true,
