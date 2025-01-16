@@ -1,0 +1,22 @@
+tags:
+  - Auth
+summary: Logout user
+operationId: logoutUser
+description: 'Logout user'
+parameters:
+  - in: cookie
+    name: refreshToken
+    required: false
+    schema:
+      type: string
+    description: The refresh token will be removed from the link to the request.
+  - in: cookie
+    name: accessToken
+    required: false
+    schema:
+      type: string
+    description: The session id will be removed from the link to the request.
+security: []
+responses:
+  '204':
+    description: Successfully logged out an user!
