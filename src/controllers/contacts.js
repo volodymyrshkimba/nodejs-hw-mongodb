@@ -56,8 +56,13 @@ export const addContactController = async (req, res) => {
   if (photo) {
     photoUrl = await saveFileToCloudinary(photo);
   }
+  console.log(req.body);
 
-  const addedContact = await addContact(req.body, photoUrl, userId);
+  const addedContact = await addContact({
+    photo: photoUrl,
+    ...req.body,
+    userId,
+  });
 
   res.status(201).json({
     status: 201,
