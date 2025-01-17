@@ -64,8 +64,8 @@ export const updateContact = async (
       userId,
     },
     {
-      ...contact,
       photo,
+      ...contact,
     },
     {
       new: true,
