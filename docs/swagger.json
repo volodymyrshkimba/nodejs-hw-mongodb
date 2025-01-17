@@ -231,7 +231,7 @@
                   "photo": {
                     "description": "Link to contact photo",
                     "type": "string",
-                    "example": "https://res.cloudinary.com/uqwgdu/image/upload/image.png"
+                    "format": "binary"
                   }
                 }
               }
@@ -397,7 +397,7 @@
                   "photo": {
                     "description": "Link to contact photo",
                     "type": "string",
-                    "example": "https://res.cloudinary.com/uqwgdu/image/upload/image.png"
+                    "format": "binary"
                   }
                 }
               }
