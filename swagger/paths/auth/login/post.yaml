@@ -1,0 +1,61 @@
+tags:
+  - Auth
+summary: Login user
+operationId: loginUser
+description: 'Login user'
+security: []
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        required:
+          - email
+          - password
+        properties:
+          email:
+            description: 'User email'
+            type: string
+            example: 'example@gmail.com'
+          password:
+            description: 'User password'
+            type: string
+            example: '12345678'
+responses:
+  '200':
+    description: Successfully logged in an user!
+    headers:
+      Set-Cookie:
+        description: refreshToken and sessionId. Each cookie is sent as a separate `Set-Cookie` header.
+        schema:
+          type: array
+          items:
+            type: string
+          example:
+            - refreshToken=hYzPTX09KszbBoxpBivWWWjzJ24sK1p0YzNs7Ae8; Path=/; Expires=Sat, 15 Feb 2025 17:17:17 GMT; HttpOnly
+            - sessionId=j%3A%2267893f1d3b71dfff71c02b49%22; Path=/; Expires=Sat, 15 Feb 2025 17:17:17 GMT; HttpOnly
+    content:
+      application/json:
+        schema:
+          type: object
+          required:
+            - status
+            - message
+            - data
+          properties:
+            status:
+              type: integer
+              example: 200
+            message:
+              type: string
+              example: Successfully logged in an user!
+            data:
+              type: object
+              required:
+                - accessToken
+              properties:
+                accessToken:
+                  type: string
+                  example: lftFQbLqpWnAB6VyTrkuUpVa1fmrYC3j/tlU982S
+  '401':
+    $ref: '../../../components/responses/login/401.yaml'
